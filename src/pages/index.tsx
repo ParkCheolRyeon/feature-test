@@ -35,6 +35,14 @@ const datas: IData[] = [
     url: "/timetableupdate",
     text: "일정 수정 ㄱㄱ",
   },
+  {
+    url: "/curriculum",
+    text: "커리큘럼 날짜로직 ㄱㄱ",
+  },
+  {
+    url: "/bottomsheet",
+    text: "바텀시트 ㄱㄱ",
+  },
 ];
 
 export default function Index() {

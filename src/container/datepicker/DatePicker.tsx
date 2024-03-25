@@ -7,8 +7,14 @@ import {
   SelectChangeEvent,
   styled,
 } from "@mui/material";
+import { DatePicker, LocalizationProvider, koKR } from "@mui/x-date-pickers";
 import dayjs from "dayjs";
 import React, { useEffect, useState } from "react";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import "dayjs/locale/ko";
+import Image from "next/image";
 
 interface SelectSTProps {
   pickdate: {
@@ -74,10 +80,66 @@ export default function DatePickerContainer() {
     }
   }, [dayList]);
 
+  const [value, setValue] = useState();
+
+  const now = dayjs();
+
+  const nowdate = now.format("YYYY/MM/DD");
+  // .css-1u23akw-MuiButtonBase-root-MuiPickersDay-root.Mui-selected
+
   return (
     <BoxST>
-      <Button onClick={() => console.log(pickDate)}>콘솔로그</Button>
+      <Box>
+        <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={"ko"}>
+          <DatePicker
+            label={nowdate}
+            format="YYYY/MM/DD"
+            value={value}
+            onChange={(newValue: any) => setValue(newValue)}
+            slots={{ openPickerIcon: CalendarMonthIcon }}
+            slotProps={{
+              day: {
+                sx: {
+                  "&.MuiPickersDay-root.Mui-selected": {
+                    backgroundColor: "#2096f3",
+                    "& :hover": {
+                      backgroundColor: "transparent",
+                    },
+                  },
+                  "&.MuiPickersDay-root:not(.Mui-selected)": {
+                    border: "none",
+                  },
+                },
+              },
+              popper: {
+                sx: {
+                  "& .MuiPaper-root": {
+                    borderRadius: "12px",
+                    width: "100%",
+                    maxWidth: "320px",
+                  },
+                  "& .MuiDayCalendar-monthContainer": {
+                    paddingTop: "12px",
+                    display: "flex",
+                    gap: "2px",
+                    flexDirection: "column",
+                    alignSelf: "stretch",
+                    alignItems: "center",
+                    justifyContent: "end",
+                  },
+                  "& .MuiPickersCalendarHeader-root": {
+                    paddingLeft: "36px",
+                    paddingRight: "28px",
+                  },
+                },
+              },
+            }}
+            sx={{}}
+          />
+        </LocalizationProvider>
+      </Box>
 
+      <Button onClick={() => console.log(pickDate)}>콘솔로그</Button>
       {/* 년도 Select */}
       <FormControl>
         <SelectST
@@ -104,7 +166,6 @@ export default function DatePickerContainer() {
           })}
         </SelectST>
       </FormControl>
-
       {/* 월 Select */}
       <FormControl>
         <SelectST
@@ -131,7 +192,6 @@ export default function DatePickerContainer() {
           })}
         </SelectST>
       </FormControl>
-
       {/* 일 Select */}
       <FormControl>
         <SelectST
@@ -168,6 +228,7 @@ export default function DatePickerContainer() {
 
 const BoxST = styled(Box)(() => {
   return {
+    gap: "40px",
     width: "100%",
     display: "flex",
     minHeight: "100vh",
