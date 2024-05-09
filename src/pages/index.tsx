@@ -47,6 +47,10 @@ const datas: IData[] = [
     url: "/csv",
     text: "CSV ㄱㄱ",
   },
+  {
+    url: "/navtest",
+    text: "navtest ㄱㄱ",
+  },
 ];
 
 export default function Index() {
