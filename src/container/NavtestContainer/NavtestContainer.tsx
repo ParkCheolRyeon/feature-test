@@ -89,7 +89,7 @@ const TabRadiusHiddenBox = styled(Box)<{
     height: "80px",
 
     overflow: "hidden",
-    borderRadius: "10px 10px 0px 10px",
+    borderRadius: "8px 10px 0px 10px",
 
     zIndex: selectedtab === index ? 2 : 1,
 
@@ -118,7 +118,7 @@ const TabItem = styled(Box)<{
     width: "120px",
     height: "80px",
     textAlign: "center",
-    borderRadius: "12px",
+    borderRadius: "8px",
 
     zIndex: selectedtab === index ? 2 : 1,
 

@@ -2,3 +2,24 @@
   margin: 0;
   padding: 0;
 }
+
+@media screen and (min-width: 1200px) {
+  .br-isLarge {
+    display: none;
+  }
+}
+@media screen and (min-width: 900px) {
+  .br-isMedium {
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) {
+  .br-isSmall {
+    display: none;
+  }
+}
+@media screen and (min-width: 400px) {
+  .br-is400 {
+    display: none;
+  }
+}

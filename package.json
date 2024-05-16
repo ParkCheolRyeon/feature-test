@@ -26,7 +26,8 @@
     "react-dom": "^18",
     "react-hook-form-mui": "^7.0.0-beta.0",
     "react-papaparse": "^4.4.0",
-    "swiper": "^11.0.5"
+    "swiper": "^11.0.5",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Table,
   TableBody,
   TableCell,
@@ -9,81 +10,37 @@ import {
   Typography,
   styled,
 } from "@mui/material";
-import React, { useState, CSSProperties } from "react";
+import React, { useState } from "react";
 
 import {
   useCSVReader,
-  lightenDarkenColor,
   formatFileSize,
+  useCSVDownloader,
 } from "react-papaparse";
-
-const GREY = "#CCC";
-const GREY_LIGHT = "rgba(255, 255, 255, 0.4)";
-const DEFAULT_REMOVE_HOVER_COLOR = "#A01919";
-const REMOVE_HOVER_COLOR_LIGHT = lightenDarkenColor(
-  DEFAULT_REMOVE_HOVER_COLOR,
-  40
-);
-const GREY_DIM = "#686868";
-
-const styles = {
-  zone: {
-    alignItems: "center",
-    border: `2px dashed ${GREY}`,
-    borderRadius: 20,
-    display: "flex",
-    flexDirection: "column",
-    height: "100%",
-    justifyContent: "center",
-    padding: 20,
-  } as CSSProperties,
-  file: {} as CSSProperties,
-  info: {
-    alignItems: "center",
-    display: "flex",
-    flexDirection: "column",
-    paddingLeft: 10,
-    paddingRight: 10,
-  } as CSSProperties,
-  size: {
-    backgroundColor: GREY_LIGHT,
-    borderRadius: 3,
-    marginBottom: "0.5em",
-    justifyContent: "center",
-    display: "flex",
-  } as CSSProperties,
-  name: {
-    backgroundColor: GREY_LIGHT,
-    borderRadius: 3,
-    fontSize: 12,
-    marginBottom: "0.5em",
-  } as CSSProperties,
-  progressBar: {
-    bottom: 14,
-    position: "absolute",
-    width: "100%",
-    paddingLeft: 10,
-    paddingRight: 10,
-  } as CSSProperties,
-  zoneHover: {
-    borderColor: GREY_DIM,
-  } as CSSProperties,
-  default: {
-    borderColor: GREY,
-  } as CSSProperties,
-  remove: {} as CSSProperties,
-};
 
 export default function CSVReader() {
   const { CSVReader } = useCSVReader();
-  const [zoneHover, setZoneHover] = useState(false);
+  const { CSVDownloader } = useCSVDownloader();
 
   const [datas, setDatas] = useState<string[]>();
 
-  console.log(datas);
-
   return (
     <Wrapper>
+      <CSVDownloader
+        filename={"수강생 목록"}
+        data={datas}
+        bom={true}
+        download={true}
+      >
+        <Button
+          variant="contained"
+          sx={{
+            width: "180px",
+          }}
+        >
+          다운로드 하셈
+        </Button>
+      </CSVDownloader>
       <CSVReader
         onUploadAccepted={(results: any) => {
           console.log("---------------------------");
@@ -91,15 +48,12 @@ export default function CSVReader() {
           setDatas(results?.data);
 
           console.log("---------------------------");
-          setZoneHover(false);
         }}
         onDragOver={(event: DragEvent) => {
           event.preventDefault();
-          setZoneHover(true);
         }}
         onDragLeave={(event: DragEvent) => {
           event.preventDefault();
-          setZoneHover(false);
         }}
       >
         {({
@@ -139,17 +93,17 @@ export default function CSVReader() {
           <Table sx={{ minWidth: 120 }} aria-label="simple table">
             <TableHead>
               <TableRow>
-                <TableCell>테이블 제목1</TableCell>
-                <TableCell align="right">테이블 제목2</TableCell>
-                <TableCell align="right">테이블 제목3</TableCell>
-                <TableCell align="right">테이블 제목3</TableCell>
-                <TableCell align="right">테이블 제목4</TableCell>
+                <TableCell>수강생 이름</TableCell>
+                <TableCell align="right">성별</TableCell>
+                <TableCell align="right">출생 년도</TableCell>
+                <TableCell align="right">휴대폰 번호</TableCell>
+                <TableCell align="right">마케팅 활용 정보 동의</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
-              {datas?.map((row: any) => (
+              {datas?.map((row: any, index) => (
                 <TableRow
-                  key={row.name}
+                  key={`${row.name} , ${index}`}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell component="th" scope="row">
@@ -157,7 +111,7 @@ export default function CSVReader() {
                   </TableCell>
                   <TableCell align="right">{row[1]}</TableCell>
                   <TableCell align="right">{row[2]}</TableCell>
-                  <TableCell align="right">{row[3]}</TableCell>
+                  <TableCell align="right">0{row[3]}</TableCell>
                   <TableCell align="right">{row[4]}</TableCell>
                 </TableRow>
               ))}
@@ -210,8 +164,8 @@ const BoxST = styled(Box)(() => {
   return {
     width: "100%",
     display: "flex",
-    justifyContent: "center",
     padding: "40px 24px",
+    justifyContent: "center",
   };
 });
 
@@ -219,6 +173,7 @@ const Wrapper = styled(Box)(() => {
   return {
     width: "100%",
     display: "flex",
+    padding: "40px 24px",
     alignItems: "center",
     flexDirection: "column",
     justifyContent: "center",
@@ -231,8 +186,8 @@ const TableContainerST = styled(TableContainer)(() => {
     display: "flex",
     maxWidth: "960px",
     padding: "40px 24px",
+    borderRadius: "24px",
     justifyContent: "center",
     border: "1px solid green",
-    borderRadius: "24px",
   };
 });

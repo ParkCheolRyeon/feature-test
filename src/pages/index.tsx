@@ -44,12 +44,20 @@ const datas: IData[] = [
     text: "바텀시트 ㄱㄱ",
   },
   {
+    url: "/navtest",
+    text: "navtest ㄱㄱ",
+  },
+  {
+    url: "/utiltest",
+    text: "유틸 테스트 ㄱㄱ",
+  },
+  {
     url: "/csv",
     text: "CSV ㄱㄱ",
   },
   {
-    url: "/navtest",
-    text: "navtest ㄱㄱ",
+    url: "/xlsx",
+    text: "엑셀 ㄱㄱ",
   },
 ];
 
