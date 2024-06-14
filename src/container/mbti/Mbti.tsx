@@ -96,17 +96,24 @@ export default function MbtiContainer() {
             {imgMbtiLists[nextImg]?.description}
           </Box>
 
-          {/* 이미지 배열 */}
-          {imgMbtiLists[nextImg]?.choice?.map(
-            (imgMbti: IChoiceType, index: number) => (
-              <img
-                src={imgMbti.imgUrl}
-                style={{ cursor: "pointer" }}
-                key={`mbti_choice_img_key${index}`}
-                onClick={() => onClickImgFn(imgMbti)}
-              />
-            )
-          )}
+          <Box sx={{ display: "flex", gap: "40px" }}>
+            {/* 이미지 배열 */}
+            {imgMbtiLists[nextImg]?.choice?.map(
+              (imgMbti: IChoiceType, index: number) => (
+                <img
+                  src={imgMbti.imgUrl}
+                  style={{
+                    cursor: "pointer",
+                    width: "225px",
+                    height: "300px",
+                    borderRadius: "24px",
+                  }}
+                  key={`mbti_choice_img_key${index}`}
+                  onClick={() => onClickImgFn(imgMbti)}
+                />
+              )
+            )}
+          </Box>
         </Box>
       </BoxSTimgChoice>
     </BoxSTwrapper>
@@ -116,12 +123,14 @@ export default function MbtiContainer() {
 const ProgressST = styled(LinearProgress)(() => ({
   height: 15,
   width: "100%",
-  borderRadius: 2,
   maxWidth: "500px",
-  border: "1px solid green",
-  backgroundColor: "#fafafa",
+  borderRadius: "24px",
+  backgroundColor: "#F5F5F5",
   [`&.${linearProgressClasses.colorPrimary}`]: {},
-  [`& .${linearProgressClasses.bar}`]: { backgroundColor: "#308fe8" },
+  [`& .${linearProgressClasses.bar}`]: {
+    backgroundColor: "#308fe8",
+    borderRadius: "24px",
+  },
 }));
 
 const BoxSTimgChoice = styled(Box)(() => {

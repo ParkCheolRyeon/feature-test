@@ -13,6 +13,8 @@ interface IMbtiReport {
   likeLists: string[];
   pleaseLists: string[];
   disLikeLists: string[];
+  color: string;
+  backgroundColor: string;
   [key: string]: string | string[];
 }
 
@@ -50,7 +52,11 @@ export default function index() {
   };
 
   return (
-    <BoxSTwrapper>
+    <BoxSTwrapper
+      sx={{
+        backgroundColor: mbtiReport?.backgroundColor,
+      }}
+    >
       {/* title */}
       <Typography variant="h3" color="initial">
         아트봉봉이 발견한 우리 아이 MBTI는 ?
@@ -60,7 +66,9 @@ export default function index() {
       <BoxSTreport key={`mbti_report_key${index}`}>
         {/* type, mainTitle, subTitle */}
         <BoxSTreportDetail>
-          <Typography variant="h4"># {mbtiReport?.type} #</Typography>
+          <Typography variant="h4" color={mbtiReport?.color}>
+            # {mbtiReport?.type} #
+          </Typography>
           <Typography variant="h4"># {mbtiReport?.mainTitle} #</Typography>
           <Typography variant="h4"># {mbtiReport?.subTitle} #</Typography>
         </BoxSTreportDetail>

@@ -1,6 +1,8 @@
 export interface MbtiResultType {
   [key: string]: {
     type: string;
+    color: string;
+    backgroundColor: string;
     subTitle: string;
     mainTitle: string;
     character: string;
@@ -14,6 +16,8 @@ export interface MbtiResultType {
 export const mbtiDatas: MbtiResultType = {
   ESTJ: {
     type: "ESTJ",
+    color: "#03A9F4",
+    backgroundColor: "#B3E5FC",
     mainTitle: "영리한 사업가",
     subTitle: "현실적이고 추진력이 있어 무었이든 주도하는 리더 어린이",
     character:
@@ -45,6 +49,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ESTP: {
     type: "ESTP",
+    color: "#673AB7",
+    backgroundColor: "#D1C4E9",
     mainTitle: "예리한 경영자",
     subTitle: "영리하고 센스 있는 모험적인 사업가 어린이",
     character:
@@ -77,6 +83,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ESFJ: {
     type: "ESFJ",
+    color: "#00BCD4",
+    backgroundColor: "#B2EBF2",
     mainTitle: "인기 많은 마당발",
     subTitle: "다른 사람들에게 애정이 많고 인기 많은 마당발 어린이",
     character:
@@ -112,6 +120,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ESFP: {
     type: "ESFP",
+    color: "#3196FF",
+    backgroundColor: "#BDDEFF",
     mainTitle: "즉흥적인 주인공",
     subTitle: "열정적이고 항상 밝은 자유로운 영혼의 연예인 어린이",
     character:
@@ -144,6 +154,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ENTJ: {
     type: "ENTJ",
+    color: "#FF9800",
+    backgroundColor: "#FFE0B2",
     mainTitle: "매력적인 지도자",
     subTitle: "자신감이 넘치고 자신의 재능을 마음껏 발휘하는 지도자 어린이",
     character:
@@ -173,6 +185,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ENTP: {
     type: "ENTP",
+    color: "#009688",
+    backgroundColor: "#B2DFDB",
     mainTitle: "호기심이 많은 도전가",
     subTitle: "지적 도전을 즐기는 영리하고 호기심 많은 사색가 어린이",
     character:
@@ -204,6 +218,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ENFJ: {
     type: "ENFJ",
+    color: "#E91E63",
+    backgroundColor: "#F8BBD0",
     mainTitle: "똑똑한 프로 해결러",
     subTitle: "온화하지만 카리스마 넘치는 책임감이 강한 지도자 어린이",
     character:
@@ -233,6 +249,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ENFP: {
     type: "ENFP",
+    color: "#4CAF50",
+    backgroundColor: "#C8E6C9",
     mainTitle: "열정적인 활동가",
     subTitle: "열정적이고 창의적인 자유로운 영혼의 활동가 어린이",
     character:
@@ -266,6 +284,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ISTJ: {
     type: "ISTJ",
+    color: "#03A9F4",
+    backgroundColor: "#B3E5FC",
     mainTitle: "믿음직한 현실주의자",
     subTitle: "신중하고 책임감이 있으며 집중력이 강한 현실주의자 어린이",
     character:
@@ -297,6 +317,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ISTP: {
     type: "ISTP",
+    color: "#673AB7",
+    backgroundColor: "#D1C4E9",
     mainTitle: "대담한 다재다능러",
     subTitle: "조용하고 절제된 호기심으로 주변을 잘 관찰하는 재주꾼 어린이",
     character:
@@ -329,6 +351,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ISFJ: {
     type: "ISFJ",
+    color: "#00BCD4",
+    backgroundColor: "#B2EBF2",
     mainTitle: "헌신적인 보호자",
     subTitle: "사려 깊고 친절해서 주변 친구들에게 헌신적인 따뜻한 어린이",
     character:
@@ -360,6 +384,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   ISFP: {
     type: "ISFP",
+    color: "#3196FF",
+    backgroundColor: "#BDDEFF",
     mainTitle: "모험적인 예술가",
     subTitle: "항상 새로운 경험을 찾는 온화하고 유연한 매력쟁이 어린이",
     character:
@@ -389,6 +415,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   INTJ: {
     type: "INTJ",
+    color: "#FF9800",
+    backgroundColor: "#FFE0B2",
     mainTitle: "상상하는 전략가",
     subTitle: "독립적이고 자립심이 강하며 성실한 전략가 어린이",
     character:
@@ -421,6 +449,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   INTP: {
     type: "INTP",
+    color: "#009688",
+    backgroundColor: "#B2DFDB",
     mainTitle: "혁신적인 발명가",
     subTitle: "끝없이 지식을 갈망하는 과묵하지만 호기심이 많은 발병가 어린이",
     character:
@@ -453,6 +483,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   INFJ: {
     type: "INFJ",
+    color: "#E91E63",
+    backgroundColor: "#F8BBD0",
     mainTitle: "신비한 이상주의자",
     subTitle: "인내심이 많고 통찰력이 뛰어나서 어른스러운 어린이",
     character:
@@ -483,6 +515,8 @@ export const mbtiDatas: MbtiResultType = {
   },
   INFP: {
     type: "INFP",
+    color: "#4CAF50",
+    backgroundColor: "#C8E6C9",
     mainTitle: "독창적인 프로 공감러",
     subTitle: "낭만적이고 부드럽지만 창의적이고 열정적인 이타주의자 어린이",
     character:

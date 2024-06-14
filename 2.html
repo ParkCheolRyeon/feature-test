@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0" />
+    <meta charset="utf-8" />
+  </head>
+  <body stype="boackground-color: whilte;">
+    <input type="button" value="test main(screen)" onClick="testMainScreen()" />
+    <input
+      type="button"
+      value="test main(webview)"
+      onClick="testMainWebView()"
+    />
+    <input type="button" value="test toggle menu" onClick="testToggleMenu()" />
+    <input
+      type="button"
+      value="test toggle notice"
+      onClick="testToggleNotice()"
+    />
+    <input type="button" value="test left" onClick="testLeft()" />
+    <input type="button" value="test right" onClick="testRight()" />
+    <input type="button" value="test bottom" onClick="testBottom()" />
+    <br />
+    <input type="button" value="test toast" onClick="testToast()" />
+    <input type="button" value="test dismiss" onClick="testDismiss()" />
+    <input type="button" value="test alert" onClick="testAlert()" />
+    <br />
+    <input type="button" value="test login" onClick="testSetLoginInfo()" />
+    <input type="button" value="test logout" onClick="testSetLoginInfo1()" />
+    <input
+      type="button"
+      value="test profile id"
+      onClick="testSetProfileInfo()"
+    />
+    <br /><br />
+    <input type="button" value="small" onClick="testSmall()" />
+    <input type="button" value="large" onClick="testLarge()" />
+    <input type="button" value="테스트퍼센트" onClick="testProgress()" />
+    <br />
+    <br />
+    <input
+      type="button"
+      value="수업 입장"
+      onClick="testEnterLesson()"
+      style="width: 200px; height: 50px"
+    />
+
+    <script type="text/javascript">
+      function testMainScreen() {
+        var text =
+          "{'urlString':'http://ec2-3-37-175-67.ap-northeast-2.compute.amazonaws.com/test','customWebViewName':'WebView','type':'full'}";
+        // <!--        var text = "{'urlString':'file:///android_asset/test_page.html','customWebViewName':'WebView'}";-->
+        window.Android.present(text);
+      }
+      function testMainWebView() {
+        var text =
+          "{'urlString':'http://ec2-3-37-175-67.ap-northeast-2.compute.amazonaws.com/test','customWebViewName':'WebView'}";
+        // <>!--var text = "{'urlString':'file:///android_asset/test_page.html','customWebViewName':'WebView'}";-->
+        window.Android.push(text);
+      }
+      function testLeft() {
+        var text =
+          "{'urlString':'file:///android_asset/test_page.html','customWebViewName':'WebView','type':'left'}";
+        window.Android.present(text);
+      }
+      function testRight() {
+        var text =
+          "{'urlString':'http://ec2-3-37-175-67.ap-northeast-2.compute.amazonaws.com/test','customWebViewName':'WebView','type':'right'}";
+        window.Android.present(text);
+      }
+      function testSmall() {
+        var text =
+          "{'urlString':'http://ec2-3-37-175-67.ap-northeast-2.compute.amazonaws.com/test','customWebViewName':'WebView','type':'centerSmall'}";
+        window.Android.present(text);
+      }
+      function testLarge() {
+        var text =
+          "{'urlString':'http://ec2-3-37-175-67.ap-northeast-2.compute.amazonaws.com/test','customWebViewName':'WebView','type':'centerLarge'}";
+        window.Android.present(text);
+      }
+      function testBottom() {
+        var text =
+          "{'urlString':'http://ec2-3-37-175-67.ap-northeast-2.compute.amazonaws.com/test','customWebViewName':'WebView','type':'bottom'}";
+        window.Android.present(text);
+      }
+      function testToast() {
+        var text = "{'msg':'test text toast','duration':5}";
+        window.Android.showToast(text);
+      }
+      function testDismiss() {
+        window.Android.dismiss();
+      }
+      function testAlert() {
+        var text = "{'msg':'test text notice','buttonMsg':'ok'}";
+        window.Android.showAlert(text);
+      }
+      function testEnterLesson() {
+        var text = "{'lessonNo':'1234'}";
+        window.Android.enterLesson(text);
+      }
+      function testSetLoginInfo() {
+        var text = "{'accessToken':'1234','refreshToken':'5678'}";
+        window.Android.setLoginInfo(text);
+      }
+      function testSetLoginInfo1() {
+        var text = "";
+        window.Android.setLoginInfo(text);
+      }
+      function testSetProfileInfo() {
+        var text = "{'profileId':'1234'}";
+        window.Android.setProfileInfo(text);
+      }
+      function testProgress() {
+        var text = "{'percent':'50', 'test'=true}";
+        window.Android.showProgress(text);
+      }
+      function testToggleMenu() {
+        window.Android.toggleMenu();
+      }
+      function testToggleNotice() {
+        window.Android.toggleNotice();
+      }
+    </script>
+  </body>
+</html>
